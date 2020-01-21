@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Request } from 'express';
 
-import { RoleResolver } from '../../types';
+import { RoleResolver } from '../types';
 
 @Injectable()
 export class EveryoneRole implements RoleResolver {

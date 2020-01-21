@@ -1,5 +1,6 @@
 import { Request } from 'express';
-import { Role } from '../core/enums/Role.enum';
+
+import { Role } from '../enums';
 
 // TODO: Typing
 export interface RoleResolver {

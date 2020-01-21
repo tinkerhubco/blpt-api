@@ -2,11 +2,7 @@ import { CanActivate, Injectable, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
 
-import {
-  RolesArg,
-  RoleResolver,
-  RoleResolverConstructor,
-} from '../../types/role.type';
+import { RolesArg, RoleResolver, RoleResolverConstructor } from '../types';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
