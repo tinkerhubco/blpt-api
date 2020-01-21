@@ -6,9 +6,9 @@ import * as morgan from 'morgan';
 require('dotenv').config();
 
 import { AppModule } from './app.module';
-import ConfigUtil from './shared/utils/config.util';
-import { RolesGuard } from './core/guards/roles.guard';
-import { MeInterceptor } from './core/interceptors/me.interceptor';
+import { ConfigUtil } from './utils';
+import { RolesGuard } from './core/guards';
+import { MeInterceptor } from './core/interceptors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

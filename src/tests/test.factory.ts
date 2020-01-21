@@ -8,11 +8,11 @@ import * as Chance from 'chance';
 import supertest = require('supertest');
 
 import { CoreModule } from '../core/core.module';
-import { TestService } from '../core/services/test.service';
+import { TestService } from '../core/services';
 import { UserRepository } from '../core/repositories';
 import { DatabaseModule } from '../core/database.module';
 
-import ConfigUtil from '../shared/utils/config.util';
+import { ConfigUtil } from '../utils';
 
 import { configureApp } from '../main';
 

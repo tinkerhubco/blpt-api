@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && copyfiles -f src/migrations/sqls/*.sql dist/migrations/sqls/",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "watch": "nodemon --watch src/ --ext ts,json --exec 'npm run build && npm start'",
@@ -48,6 +48,7 @@
     "@types/voca": "^1.4.0",
     "chance": "^1.0.18",
     "commander": "^2.20.0",
+    "copyfiles": "^2.1.1",
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "morgan": "^1.9.1",

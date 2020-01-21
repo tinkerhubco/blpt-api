@@ -13,13 +13,15 @@ type ParseEntityOptions = {
 
 @Injectable()
 export class ParseEntityPipe implements PipeTransform {
-  constructor(
-    private readonly parseEntityOptions: ParseEntityOptions = {
-      validatorOptions: {
-        whitelist: true,
-      },
+  private options: ParseEntityOptions = {
+    validatorOptions: {
+      whitelist: true,
     },
-  ) {}
+  };
+
+  constructor(private parseEntityOptions?: ParseEntityOptions) {
+    Object.assign({}, this.options, this.parseEntityOptions);
+  }
 
   public async transform(value: any, metadata: ArgumentMetadata) {
     const { metatype } = metadata;
@@ -29,16 +31,14 @@ export class ParseEntityPipe implements PipeTransform {
     }
 
     const entity = plainToClass(metatype, value);
-    const errors = await validate(
-      entity,
-      this.parseEntityOptions.validatorOptions,
-    );
+    // Pass only a copy to validate to avoid mutating the real object
+    const errors = await validate({ ...entity }, this.options.validatorOptions);
 
     if (errors.length) {
       throw new BadRequestException(errors);
     }
 
-    return value;
+    return entity;
   }
 
   private toValidate(metatype: Function): boolean {

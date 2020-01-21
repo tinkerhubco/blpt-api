@@ -5,7 +5,7 @@ import { writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 
 import * as commander from 'commander';
-import ConfigUtil from '../shared/utils/config.util';
+import { ConfigUtil } from '../utils';
 
 const packageJSON = require('../../package.json');
 
@@ -47,7 +47,7 @@ async function main() {
     .command('up')
     .description('Run migrations')
     .action(async () => {
-      dbConnection.runMigrations();
+      await dbConnection.runMigrations();
       await dbConnection.close();
     });
 
@@ -55,7 +55,7 @@ async function main() {
     .command('down')
     .description('Undo migrations')
     .action(async () => {
-      dbConnection.undoLastMigration();
+      await dbConnection.undoLastMigration();
       await dbConnection.close();
     });
 

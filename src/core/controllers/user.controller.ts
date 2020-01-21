@@ -9,11 +9,11 @@ import {
   Body,
 } from '@nestjs/common';
 
-import { UserCreateDto } from '../../shared/dtos';
-import { UserService } from '../services/user.service';
-import { ParseEntityPipe } from '../pipes/parse-entity.pipe';
-import { Roles } from '../../core/decorators/roles.decorator';
-import { EveryoneRole } from '../roles/everyone.role';
+import { UserCreateDto } from '../dtos';
+import { UserService } from '../services';
+import { ParseEntityPipe } from '../pipes';
+import { Roles } from '../../core/decorators';
+import { EveryoneRole } from '../roles';
 
 @Controller('users')
 export class UserController {

@@ -2,7 +2,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 
 import { UserRepository } from './repositories';
-import ConfigUtil from '../shared/utils/config.util';
+import { ConfigUtil } from '../utils';
 
 @Module({
   imports: [
