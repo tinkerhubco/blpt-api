@@ -7,14 +7,14 @@ import * as Chance from 'chance';
 
 import supertest = require('supertest');
 
-import { CoreModule } from '../core/core.module';
-import { TestService } from '../core/services';
-import { UserRepository } from '../core/repositories';
-import { DatabaseModule } from '../core/database.module';
+import { CoreModule } from '../core.module';
+import { TestService } from '../services';
+import { UserRepository } from '../repositories';
+import { DatabaseModule } from '../database.module';
 
-import { ConfigUtil } from '../utils';
+import { ConfigUtil } from '../../utils';
 
-import { configureApp } from '../main';
+import { configureApp } from '../../main';
 
 const chance = new Chance();
 
